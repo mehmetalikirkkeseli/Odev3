@@ -31,16 +31,13 @@ namespace DataAccess.Concrete.InMemory
 
         public void Delete(Product product)
         {
-            Product productToDelete = null;
-            foreach (var p in _products)
-            {
-                if (product.ProductId == p.ProductId)
-                {
-                    productToDelete = p;
-                }
-            }
+            //LINQ - Language Integrated Query
+            //=> (Lambda) 
+            Product productToDelete = _products.SingleOrDefault(p=>p.ProductId == product.ProductId);
+
             _products.Remove(productToDelete);
         }
+
 
         public List<Product> GetAll()
         {
