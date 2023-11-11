@@ -44,6 +44,7 @@ namespace DataAccess.Concrete.InMemory
             return _products;
         }
 
+
         public void Update(Product product)
         {
             //Gönderdiğim ürün id'sine sahip olan listedeki ürünü bul
@@ -52,6 +53,11 @@ namespace DataAccess.Concrete.InMemory
             productToUpdate.CategoryId = product.CategoryId;
             productToUpdate.UnitPrice = product.UnitPrice;
             productToUpdate.UnitsInStock = product.UnitsInStock;
+        }
+
+        public List<Product> GetAllCategory(int categoryId)
+        {
+            
         }
     }
 }
