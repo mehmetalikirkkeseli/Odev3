@@ -26,17 +26,25 @@ namespace DataAccess.Concrete.InMemory
         }
         public void Add(Product product)
         {
-            throw new NotImplementedException();
+            _products.Add(product);
         }
 
         public void Delete(Product product)
         {
-            throw new NotImplementedException();
+            Product productToDelete = null;
+            foreach (var p in _products)
+            {
+                if (product.ProductId == p.ProductId)
+                {
+                    productToDelete = p;
+                }
+            }
+            _products.Remove(productToDelete);
         }
 
         public List<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return _products;
         }
 
         public void Update(Product product)
