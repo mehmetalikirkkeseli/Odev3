@@ -14,7 +14,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=MEHMETALI;Database=Northwind;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=MEHMETALI;Database=Northwind;Trusted_Connection=true;TrustServerCertificate=true");
         }
 
         public DbSet<Product> Products { get; set; }
