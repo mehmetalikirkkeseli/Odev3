@@ -26,7 +26,12 @@ namespace DataAccess.Concrete.EntityFramework
 
         public void Delete(Product entity)
         {
-            throw new NotImplementedException();
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                var deletedEntity = context.Entry(entity);
+                deletedEntity.State = EntityState.Deleted;
+                context.SaveChanges();
+            }
         }
 
         public Product Get(Expression<Func<Product, bool>> filter)
